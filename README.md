@@ -35,7 +35,7 @@ Data packets consist of a Command, Command Data, Status, and CRC.
 | Field     | Size (bytes) | Description                  |
 |-----------|--------------|------------------------------|
 | Command   | 1            | The command id               |
-| Data Size | 1            | The size of the <Data> field |
+| Data Size | 1            | The size of the [Data] field |
 | Data      | variable     | The command data             |
 | Status    | 1            | The status of the command¹    |
 | CRC       | 2            | The CRC-16 of the packet²     |
