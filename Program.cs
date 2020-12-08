@@ -64,16 +64,6 @@ namespace NotifiAlert
 
         public class CommandPacket
         {
-            static readonly Command[] CommandsWithData = {
-                Command.SendCommandType,
-                Command.SendWifiPWD,
-                Command.SendGMT,
-                Command.SendServer,
-                Command.SendWifiSSID,
-                Command.GetScannedWifiSSID,
-                Command.SendCloudID,
-                Command.SendDeviceName
-            };
             public Command Command { get; set; }
             public byte[] Data { get; set; }
             public byte Status { get; set; }
@@ -97,7 +87,7 @@ namespace NotifiAlert
                 buffer[writeIndex++] = Data == null ? (byte)0 : (byte)Data.Length;
 
                 // Command data (variable)
-                if (Data != null && CommandsWithData.Contains(Command))
+                if (Data != null && Data.Length > 0)
                 {
                     Array.Copy(Data, 0, buffer, writeIndex, Data.Length);
                     writeIndex += Data.Length;
