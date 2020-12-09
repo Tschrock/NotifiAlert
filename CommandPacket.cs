@@ -36,7 +36,7 @@ namespace NotifiAlert
         /// </summary>
         /// <param name="command">The command.</param>
         /// <param name="data">The command data.</param>
-        public CommandPacket(Command command, byte[] data) : this(command, data, 0) { }
+        public CommandPacket(Command command, params byte[] data) : this(command, data, 0) { }
 
         /// <summary>
         /// Creates a new CommandPacket.
