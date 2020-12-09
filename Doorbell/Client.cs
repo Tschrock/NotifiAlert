@@ -1,13 +1,11 @@
-
-using System.IO;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using static System.Text.Encoding;
 
 using Microsoft.Extensions.Logging;
-using System.Linq;
-using System;
-using System.Net.NetworkInformation;
 
 namespace NotifiAlert.Doorbell
 {
@@ -16,7 +14,6 @@ namespace NotifiAlert.Doorbell
         public readonly string serverHost = "192.168.100.1";
         public readonly int serverPort = 12345;
         public readonly int timeout = 12000;
-
         private TcpClient client;
         private NetworkStream stream;
         private byte[] sessionEncryptionKey = Crypto.DefaultKey;
