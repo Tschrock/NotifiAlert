@@ -1,6 +1,6 @@
 using System;
 
-namespace NotifiAlert
+namespace NotifiAlert.Doorbell
 {
     /// <summary>
     /// A command packet.

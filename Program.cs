@@ -2,6 +2,8 @@
 using System.Linq;
 using Microsoft.Extensions.Logging;
 
+using NotifiAlert.Doorbell;
+
 namespace NotifiAlert
 {
     class Program
@@ -20,7 +22,7 @@ namespace NotifiAlert
 
             ILogger logger = loggerFactory.CreateLogger("NotifiAlert");
 
-            Client client = new Client(logger);
+            DoorbellClient client = new DoorbellClient(logger);
 
             client.Connect();
 

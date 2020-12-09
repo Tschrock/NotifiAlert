@@ -9,9 +9,9 @@ using System.Linq;
 using System;
 using System.Net.NetworkInformation;
 
-namespace NotifiAlert
+namespace NotifiAlert.Doorbell
 {
-    public class Client
+    public class DoorbellClient
     {
         public readonly string serverHost = "192.168.100.1";
         public readonly int serverPort = 12345;
@@ -22,7 +22,7 @@ namespace NotifiAlert
         private byte[] sessionEncryptionKey = Crypto.DefaultKey;
         private ILogger log;
 
-        public Client(ILogger logger)
+        public DoorbellClient(ILogger logger)
         {
             log = logger;
         }

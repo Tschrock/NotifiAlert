@@ -1,4 +1,4 @@
-namespace NotifiAlert
+namespace NotifiAlert.Doorbell
 {
     /// <summary>
     /// The device command.

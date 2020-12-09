@@ -1,4 +1,4 @@
-namespace NotifiAlert
+namespace NotifiAlert.Doorbell
 {
     [System.Serializable]
     public class PacketException : System.Exception
