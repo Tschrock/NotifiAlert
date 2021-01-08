@@ -120,10 +120,10 @@ namespace NotifiAlert.Doorbell
             return result.Status;
         }
 
-        internal byte[] Net_GetWifiConnectionStatus()
+        internal CommandPacket Net_GetWifiConnectionStatus()
         {
             CommandPacket result = SendCommand(new CommandPacket(Command.GetWifiConnectionStatus));
-            return result.Data;
+            return result;
         }
 
         internal int Net_GetScannedWifiSSIDNum()
@@ -142,7 +142,7 @@ namespace NotifiAlert.Doorbell
             log.LogTrace("SSID List Bytes: {0}", ssidListBytes.Hex());
 
             // The result data is a cstring, so trim off the trailing null
-            ReadOnlySpan<byte> trimmedListBytes = ssidListBytes.TrimBytes(0);
+            ReadOnlySpan<byte> trimmedListBytes = ssidListBytes.Trim(0);
 
             // Convert the bytes to a string so we can split it easier
             string ssidList = ASCII.GetString(trimmedListBytes);
@@ -276,7 +276,7 @@ namespace NotifiAlert.Doorbell
             byte[] buffer = ReadUntil((byte)'\n');
 
             // Trim any extra null bytes/newlines
-            ReadOnlySpan<byte> trimmedBuffer = buffer.TrimBytes(0, (byte)'\n', (byte)'\r');
+            ReadOnlySpan<byte> trimmedBuffer = buffer.Trim(0, (byte)'\n', (byte)'\r');
             log.LogDebug("Read {0} bytes: {1}", trimmedBuffer.Length, trimmedBuffer.Hex());
 
             // Check buffer length

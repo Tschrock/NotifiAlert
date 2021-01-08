@@ -6,19 +6,19 @@ namespace NotifiAlert.Doorbell
     /// </summary>
     public enum Command
     {
-        StartCommunication = 0,
-        SendWifiSSID = 16,
-        SendWifiPWD = 17,
-        SendDeviceName = 18,
-        SendCloudID = 19,
-        SendGMT = 20,
+        StartCommunication = 0, // StartCommunication
+        SendWifiSSID = 16, // SendWifiSSID
+        SendWifiPWD = 17, // SendWifiPWD
+        SendDeviceName = 18, // SendDeviceName
+        SendCloudID = 19, // SendCloudID
+        SendGMT = 20, // SendTimeZone
+        SendServer = 21, // SendDebugMode
         SendCommandType = 22,
-        SendServer = 21,
-        GetWifiConnectionStatus = 64,
-        GetScannedWifiSSIDNum = 65,
-        GetScannedWifiSSID = 66,
-        EndCommunication = -1,
+        GetWifiConnectionStatus = 64, // GetWifiConnectStatus
+        GetScannedWifiSSIDNum = 65, // GetScannedWifiSsidNum
+        GetScannedWifiSSID = 66, // GetScannedWifiSsid
+        GetMacAddress = 67 // GetMacAddress
+        EndCommunication = -1, // EndCommunication
         NoCommand = -1,
-        GetMacAddress = 67
     }
 }
