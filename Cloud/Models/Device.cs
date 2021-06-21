@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace NotifiAlert.Cloud.Models
 {
-    public partial class Device
+    public class Device
     {
         [JsonPropertyName("DeviceId")]
         public long DeviceId { get; set; }

@@ -17,7 +17,7 @@ namespace NotifiAlert.Doorbell
         GetWifiConnectionStatus = 64, // GetWifiConnectStatus
         GetScannedWifiSSIDNum = 65, // GetScannedWifiSsidNum
         GetScannedWifiSSID = 66, // GetScannedWifiSsid
-        GetMacAddress = 67 // GetMacAddress
+        GetMacAddress = 67, // GetMacAddress
         EndCommunication = -1, // EndCommunication
         NoCommand = -1,
     }

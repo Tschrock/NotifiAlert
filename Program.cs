@@ -45,14 +45,14 @@ namespace NotifiAlert
             var mac = client.Net_GetMacAddress();
             Console.WriteLine(mac.GetAddressBytes().Hex());
 
-            client.Net_SendGMT(GetTimeZone());
-            client.Net_SendServer(false);
-            client.Net_SendWifiPWD("");
-            client.Net_SendDeviceName("Side Door");
-            client.Net_SendCloudID("x@gmail.com");
-            client.Net_SendCommandType(false);
-            client.Net_SendWifiSSID("wifi");
-            client.Net_EndCommunication();
+            // client.Net_SendGMT(GetTimeZone());
+            // client.Net_SendServer(false);
+            // client.Net_SendWifiPWD("");
+            // client.Net_SendDeviceName("Side Door");
+            // client.Net_SendCloudID("x@gmail.com");
+            // client.Net_SendCommandType(false);
+            // client.Net_SendWifiSSID("wifi");
+            // client.Net_EndCommunication();
        }
 
         private static byte[] GetTimeZone()

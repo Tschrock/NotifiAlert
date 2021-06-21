@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 using NotifiAlert.Cloud.Models;
@@ -52,7 +53,12 @@ namespace NotifiAlert.Cloud
             return await response.Content.ReadAsStringAsync();
         }
         
-        public Task FindDevices() => GetAsync<Device[]>("api/Relationship/FindDevices");
+        public Task<Device[]> FindDevices() => GetAsync<Device[]>("api/Relationship/FindDevices");
+        public Task<Welcome> GetWelcomeMessage() => GetAsync<Welcome>("api/AppUser/Welcome");
+        public Task<string> GetCurrentEmail() => GetAsync<string>("api/AppUser/CurrentEmail");
+        public Task<FirmwareVersions> GetFirmwareVersionInfo(GetFirmwareVersionType type) => GetAsync<FirmwareVersions>("api/firmware/VersionInfo?type=" + type);
+        public Task<EventLog[]> GetEventLog(string deviceId) => GetAsync<EventLog[]>("api/event/QueryEvent?DeviceKey=" + deviceId);
+        public Task<DeviceSideLogResponse> PostDeviceLogging(DeviceSideLog log) => PostAsync<DeviceSideLog, DeviceSideLogResponse>("api/logging/DeviceSide", log);
 
         private Task<T> GetAsync<T>(string url, Dictionary<string, dynamic> queryParams)
         {
@@ -71,12 +77,11 @@ namespace NotifiAlert.Cloud
             string responseData = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<T>(responseData);
         }
-        private async Task<T> PostAsync<T>(string url, HttpContent content)
+        private async Task<U> PostAsync<T, U>(string url, T content)
         {
-            HttpResponseMessage response = await client.PostAsync(url, content);
+            HttpResponseMessage response = await client.PostAsJsonAsync(url, content);
             response.EnsureSuccessStatusCode();
-            string responseData = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(responseData);
+            return await response.Content.ReadFromJsonAsync<U>();
         }
 
     }

@@ -1,2 +1,6 @@
-[Bb]in/
-[Oo]bj/
+/[Bb]in/
+/[Oo]bj/
+/firmware/
+/responses/
+*.pcap
+*.pcapng

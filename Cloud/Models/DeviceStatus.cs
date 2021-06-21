@@ -1,9 +1,8 @@
-using System;
 using System.Text.Json.Serialization;
 
 namespace NotifiAlert.Cloud.Models
 {
-    public partial class DeviceStatus
+    public class DeviceStatus
     {
         [JsonPropertyName("AcPowerFlag")]
         public bool AcPowerFlag { get; set; }
